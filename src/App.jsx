@@ -415,22 +415,32 @@ export default function App() {
     }
   }
 
+  const stats = [
+    { value: '12+', label: 'career tracks covered' },
+    { value: '4', label: 'clear roadmap phases' },
+    { value: '100%', label: 'practical, action-based planning' },
+  ];
+
   const benefits = [
     {
       title: 'Tailored to your stage',
       body: 'A 1st-year plan and a final-year plan should never feel the same. Eduexpose adapts your roadmap to your current year, runway, and pressure points.',
+      icon: '🎯',
     },
     {
       title: 'Actionable learning path',
       body: 'Instead of vague advice, you get the exact skills, tools, and project sequence that move you toward your target career outcome.',
+      icon: '🧭',
     },
     {
       title: 'Portfolio-worthy projects',
       body: 'Build projects that do more than look impressive — they help from internships and placements to stronger conversations with mentors.',
+      icon: '🚀',
     },
     {
       title: 'Clear direction for every goal',
       body: 'Whether your goal is placement, higher studies, startup building, or GATE preparation, the roadmap endpoint changes with your ambition.',
+      icon: '✨',
     },
   ];
 
@@ -511,8 +521,8 @@ export default function App() {
               <h1 className="display-5 fw-semibold mt-3 mb-3 text-dark">Build a career path that actually fits your next move. <span className="text-warning">That’s Eduexpose.</span></h1>
               <p className="lead text-secondary">Choose your current year, pick your track, and define your goal. Eduexpose turns that signal into a practical roadmap with the skills, tools, projects, and milestones that move you forward.</p>
               <div className="d-flex flex-wrap gap-3 mt-4">
-                <button className="btn btn-warning btn-lg text-dark fw-semibold" onClick={() => scrollTo(generatorRef)}>Draft my roadmap →</button>
-                <button className="btn btn-outline-secondary btn-lg" onClick={() => scrollTo(howRef)}>See how it works</button>
+                <button className="btn btn-warning btn-lg text-dark fw-semibold px-4 shadow-sm" onClick={() => scrollTo(generatorRef)}>Draft my roadmap →</button>
+                <button className="btn btn-outline-secondary btn-lg px-4" onClick={() => scrollTo(howRef)}>See how it works</button>
               </div>
               <div className="d-flex flex-wrap gap-2 mt-4">
                 {['Personalized for your year', 'Domain-specific roadmap', 'Built around practical outcomes'].map((tag) => (
@@ -522,8 +532,8 @@ export default function App() {
             </div>
 
             <div className="col-lg-5">
-              <div className="card shadow-sm border-0 rounded-4 p-3 bg-white">
-                <div className="card-body rounded-4 bg-body-tertiary border">
+              <div className="card shadow-lg border-0 rounded-4 p-3 hero-shell">
+                <div className="card-body rounded-4 section-surface border">
                   <div className="d-flex justify-content-between align-items-center mb-3">
                     <span className="text-uppercase small text-secondary">Roadmap snapshot</span>
                     <span className="badge rounded-pill text-bg-primary">Live draft</span>
@@ -544,15 +554,32 @@ export default function App() {
         </div>
       </section>
 
+      <section className="py-3">
+        <div className="container">
+          <div className="row g-3">
+            {stats.map((stat) => (
+              <div className="col-md-4" key={stat.label}>
+                <div className="card border-0 shadow-sm rounded-4 stat-pill h-100">
+                  <div className="card-body text-center py-4">
+                    <div className="display-6 fw-semibold text-dark">{stat.value}</div>
+                    <div className="small text-secondary mt-2">{stat.label}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-5" ref={whyRef}>
         <div className="container">
           <SectionHead eyebrow="Why this exists" title="Students do not need more advice. They need direction that feels real." />
           <div className="row g-4">
             {benefits.map((item) => (
               <div className="col-md-6 col-xl-3" key={item.title}>
-                <div className="card h-100 border-0 shadow-sm rounded-4 p-4">
+                <div className="card h-100 border-0 shadow-sm rounded-4 p-4 feature-card">
                   <div className="rounded-4 bg-primary-subtle p-3 mb-3 d-inline-flex align-items-center justify-content-center" style={{ width: 58, height: 58 }}>
-                    <span className="fw-bold text-warning">✓</span>
+                    <span className="fw-bold text-warning fs-4">{item.icon}</span>
                   </div>
                   <h3 className="h5 fw-semibold text-dark">{item.title}</h3>
                   <p className="text-secondary mb-0">{item.body}</p>
@@ -590,7 +617,7 @@ export default function App() {
         <div className="container">
           <SectionHead eyebrow="Roadmap builder" title="Build the plan that fits your stage, track, and ambition." sub="Choose your year, domain, and goal. Eduexpose converts that into a practical roadmap you can follow with clarity." />
 
-          <div className="card border-0 shadow-sm rounded-4 p-4 p-lg-5">
+          <div className="card border-0 shadow-sm rounded-4 p-4 p-lg-5 section-surface">
             <div className="row g-3 mb-3">
               <div className="col-md-6">
                 <label className="form-label fw-semibold text-secondary">Your name (optional)</label>
